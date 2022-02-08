@@ -6,5 +6,8 @@
         public string Name { get; set; }
         public double Price { get; set; }
         public DateTime ExpirationDate { get; set; }
+
+        public ICollection<Pharmacy> PharmacyId { get; set; }
+        public ICollection<Client> ClientId { get; set; }
     }
 }

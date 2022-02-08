@@ -2105,9 +2105,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\git\\Pharmacy\\src\\Pharmacy\\Pharmacies.csproj",
-      "projectName": "Pharmacies",
-      "projectPath": "E:\\git\\Pharmacy\\src\\Pharmacy\\Pharmacies.csproj",
+      "projectUniqueName": "E:\\git\\Pharmacy\\src\\Pharmacy\\Pharmacy.csproj",
+      "projectName": "Pharmacy",
+      "projectPath": "E:\\git\\Pharmacy\\src\\Pharmacy\\Pharmacy.csproj",
       "packagesPath": "C:\\Users\\Mustafa Shakir\\.nuget\\packages\\",
       "outputPath": "E:\\git\\Pharmacy\\src\\Pharmacy\\obj\\",
       "projectStyle": "PackageReference",

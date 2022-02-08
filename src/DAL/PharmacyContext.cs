@@ -19,7 +19,7 @@ namespace DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("");
+            optionsBuilder.UseSqlServer("Data Source=MUSTAFA;Initial Catalog=Pharmacy;Integrated Security=True;Pooling=False");
             base.OnConfiguring(optionsBuilder);
         }
     }

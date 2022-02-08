@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CYW5le7NKF/RQCrNY9AB9JS8k/77Ll3TT8p1oWy2ZNy4kJZEhBngZmrOTmQZasS19oO+//FSRPYG7J21/GTotQ==",
+  "dgSpecHash": "0LaKC6x+q6Y/ethsknezvVLuZ8pXCU0I2A7y4vztxPenc+t4ejK7e8QH1S2ywZb/zp6THUOAtROpdHYJcaPuUg==",
   "success": true,
-  "projectFilePath": "E:\\C#Ex\\Pharmacy\\Core\\Core.csproj",
+  "projectFilePath": "E:\\git\\Pharmacy\\src\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mustafa Shakir\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Mustafa Shakir\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Queries.GetAllClients
 {
-    public class GetAllClientsQueryHandler : IQueryHandler<GetAllClientsQuery, IList<Client>
+    public class GetAllClientsQueryHandler : IQueryHandler<GetAllClientsQuery, IList<Client>>
     {
         private readonly PharmacyContext _pharmacyContext;
         public GetAllClientsQueryHandler(PharmacyContext pharmacyContext)

@@ -8,9 +8,9 @@ namespace Pharmacy.Controllers
     [ApiController]
     public class PharmacyController : ControllerBase
     {
-        private readonly IQueryHandler<GetAllPharmaciesQuery, IList<Pharmacy>> _getAllPharmaciesQuery;
+        private readonly IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>> _getAllPharmaciesQuery;
         public PharmacyController(
-            IQueryHandler<GetAllPharmaciesQuery, IList<Pharmacy>> getAllPharmaciesQuery)
+            IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>> getAllPharmaciesQuery)
         {
             _getAllPharmaciesQuery = getAllPharmaciesQuery;
         }
@@ -18,7 +18,7 @@ namespace Pharmacy.Controllers
         [HttpGet(Name = "GetAllPharmacies")]
         public async Task<IActionResult> GetAllPharmacies()
         {
-            IList<Pharmacy> pharmacies = await _getAllPharmaciesQuery.HandleAsync(new GetAllPharmaciesQuery());
+            IList<Core.Entities.Pharmacy> pharmacies = await _getAllPharmaciesQuery.HandleAsync(new GetAllPharmaciesQuery());
 
             return Ok(pharmacies);
         }

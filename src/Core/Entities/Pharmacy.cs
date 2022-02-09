@@ -8,6 +8,6 @@
         public int PhoneNumber { get; set; }
 
         public ICollection<Medicament> MedicamentId { get; set; }
-        public ICollection<Client> ClientId { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

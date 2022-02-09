@@ -8,7 +8,6 @@
         public int Age { get; set; }
         public double Points { get; set; }
 
-        public ICollection<Medicament> MedicamentId { get; set; }
-        public ICollection<Pharmacy> PharmacyId { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

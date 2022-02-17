@@ -22,5 +22,7 @@ namespace Pharmacy.Controllers
 
             return Ok(pharmacies);
         }
+        //CRUD Pharmacies 
+        //Insert Medications
     }
 }

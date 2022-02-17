@@ -11,11 +11,22 @@ namespace DAL.Queries.GetAllClients
         {
             _pharmacyContext = pharmacyContext;
         }
+
+     
+
+        public async Task<IList<Client>> CreateClient(Client result)
+        {
+           var clients = _pharmacyContext.Clients.Add(result);
+            await _pharmacyContext.SaveChangesAsync();
+            return (IList<Client>)clients;
+        }
+
+
         public async Task<IList<Client>> HandleAsync(GetAllClientsQuery query, CancellationToken cancellationToken = default)
         {
             List<Client> clients = await _pharmacyContext.Clients.ToListAsync(cancellationToken);
-
             return clients;
         }
+    
     }
 }

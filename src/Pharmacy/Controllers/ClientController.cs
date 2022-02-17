@@ -24,5 +24,11 @@ namespace Pharmacy.Controllers
             return Ok(clients);
         }
         //CRUD Clients
+        [HttpPost]
+        public async Task<IActionResult> CreateClient([FromBody] IList<Client> client)
+        {
+            IList<Client> clients = await _getAllClientsQuery.CreateClient(client);
+            return Ok(clients);
+        }
     }
 }

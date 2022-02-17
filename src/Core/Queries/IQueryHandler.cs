@@ -6,6 +6,6 @@ namespace Core.Queries
         where TQuery : IQuery<TResult>
     {
         Task<TResult> HandleAsync(TQuery query, CancellationToken cancellationToken = default);
-        Task<IList<Client>> CreateClient(TResult result);
+        Task<TResult> CreateClient(TResult result);
     }
 }

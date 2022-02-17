@@ -12,9 +12,11 @@ namespace DAL.Queries.GetAllPharmacies
             _pharmacyContext = pharmacyContext;
         }
 
-        public Task<IList<Client>> CreateClient(IList<Pharmacy> result)
+        public async Task<IList<Pharmacy>> CreateClient(IList<Pharmacy> result)
         {
-            throw new NotImplementedException();
+            _pharmacyContext.Add(result.FirstOrDefault());
+            await _pharmacyContext.SaveChangesAsync();
+            return result;
         }
 
         public async Task<IList<Pharmacy>> HandleAsync(GetAllPharmaciesQuery query, CancellationToken cancellationToken = default)

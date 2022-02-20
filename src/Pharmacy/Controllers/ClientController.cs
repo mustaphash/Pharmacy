@@ -16,8 +16,8 @@ namespace Pharmacy.Controllers
             _getAllClientsQuery = getAllClientsQuery;
         }
 
-        [HttpGet(Name = "GetAllClients")]
-        public async Task<IActionResult> GetAllClients()
+        [HttpGet(Name = "GetAllClientsById")]
+        public async Task<IActionResult> GetAllClientsById(int Id)
         {
             IList<Client> clients = await _getAllClientsQuery.HandleAsync(new GetAllClientsQuery());
 
@@ -30,5 +30,7 @@ namespace Pharmacy.Controllers
             IList<Client> clients = await _getAllClientsQuery.CreateClient(client);
             return Created($"GetAllClients/{client}",clients);
         }
+        [HttpPut]
+       
     }
 }

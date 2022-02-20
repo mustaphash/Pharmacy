@@ -13,13 +13,6 @@ namespace DAL.Queries.GetAllClients
         }
 
 
-        public async Task<IList<Client>> CreateClient(IList<Client> result)
-        {
-            _pharmacyContext.Add(result.FirstOrDefault());
-            await _pharmacyContext.SaveChangesAsync();
-            return result;
-        }
-
         public async Task<IList<Client>> HandleAsync(GetAllClientsQuery query, CancellationToken cancellationToken = default)
         {
             List<Client> clients = await _pharmacyContext.Clients.ToListAsync(cancellationToken);

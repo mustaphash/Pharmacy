@@ -15,7 +15,7 @@ namespace Pharmacy.Controllers
             _getAllPharmaciesQuery = getAllPharmaciesQuery;
         }
 
-        [HttpGet(Name = "GetAllPharmacies")]
+        [HttpGet]
         public async Task<IActionResult> GetAllPharmacies()
         {
             IList<Core.Entities.Pharmacy> pharmacies = await _getAllPharmaciesQuery.HandleAsync(new GetAllPharmaciesQuery());

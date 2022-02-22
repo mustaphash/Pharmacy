@@ -9,6 +9,6 @@ namespace DAL.Commands.CreateClient
         {
             Client = client;
         }
-        public Client Client { get; set; }
+        public Client Client { get;}
     }
 }

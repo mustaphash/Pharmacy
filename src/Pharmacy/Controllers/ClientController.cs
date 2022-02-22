@@ -1,7 +1,10 @@
-﻿using Core.Entities;
+﻿using Core.Commands;
+using Core.Entities;
 using Core.Queries;
+using DAL.Commands.CreateClient;
 using DAL.Queries.GetAllClients;
 using Microsoft.AspNetCore.Mvc;
+using Pharmacy.Models;
 
 namespace Pharmacy.Controllers
 {
@@ -10,27 +13,31 @@ namespace Pharmacy.Controllers
     public class ClientController : ControllerBase
     {
         private readonly IQueryHandler<GetAllClientsQuery, IList<Client>> _getAllClientsQuery;
+        private readonly ICommandHandler<ClientCommand> _createClientCommand;
+
         public ClientController(
-            IQueryHandler<GetAllClientsQuery, IList<Client>> getAllClientsQuery)
+            IQueryHandler<GetAllClientsQuery, IList<Client>> getAllClientsQuery,
+            ICommandHandler<ClientCommand> createClientCommand)
         {
             _getAllClientsQuery = getAllClientsQuery;
+            _createClientCommand = createClientCommand;
         }
 
-        [HttpGet(Name = "GetAllClientsById")]
-        public async Task<IActionResult> GetAllClientsById(int Id)
+        [HttpGet]
+        public async Task<IActionResult> GetAllClients()
         {
             IList<Client> clients = await _getAllClientsQuery.HandleAsync(new GetAllClientsQuery());
 
             return Ok(clients);
         }
-        //CRUD Clients
+
         [HttpPost]
-        public async Task<IActionResult> CreateClient(IList<Client> client)
+        public async Task<IActionResult> CreateClient(CreateClientModel clientModel)
         {
-            IList<Client> clients = await _getAllClientsQuery.CreateClient(client);
-            return Created($"GetAllClients/{client}",clients);
+            var client = clientModel.ToClient();
+            await _createClientCommand.HandleAsync(new ClientCommand(client));
+
+            return NoContent();
         }
-        [HttpPut]
-       
     }
 }

@@ -11,8 +11,8 @@ namespace DAL.Commands.ClientCommand
         }
         public async Task HandleAsync(DeleteClientCommand command, CancellationToken cancellationToken = default)
         {
-            await _pharmacyContext.Remove();
-
+             _pharmacyContext.Remove(command.Client);
+            await _pharmacyContext.SaveChangesAsync();
         }
     }
 }

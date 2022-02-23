@@ -2,6 +2,7 @@ using Core.Commands;
 using Core.Entities;
 using Core.Queries;
 using DAL;
+using DAL.Commands.ClientCommand;
 using DAL.Commands.CreateClient;
 using DAL.Commands.PharmacyCommand;
 using DAL.Queries.GetAllClients;
@@ -24,8 +25,9 @@ builder.Services.AddScoped<IQueryHandler<GetAllClientsQuery, IList<Client>>, Get
 builder.Services.AddScoped<IQueryHandler<GetAllMedicamentsQuery, IList<Medicament>>, GetAllMedicamentsQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>>, GetAllPharmaciesQueryHandler>();
 
-builder.Services.AddScoped < ICommandHandler<ClientCommand>>();
-builder.Services.AddScoped<ICommandHandler<PharmacyCommand>>();
+builder.Services.AddScoped<ICommandHandler<ClientCommand>, ClientCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<DeleteClientCommand>, DeleteClientCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<PharmacyCommand>, PharmacyCommandHandler>();
 
 var app = builder.Build();
 

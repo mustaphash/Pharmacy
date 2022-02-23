@@ -1,6 +1,7 @@
 ﻿using Core.Commands;
 using Core.Entities;
 using Core.Queries;
+using DAL.Commands.ClientCommand;
 using DAL.Commands.CreateClient;
 using DAL.Queries.GetAllClients;
 using Microsoft.AspNetCore.Mvc;
@@ -14,13 +15,16 @@ namespace Pharmacy.Controllers
     {
         private readonly IQueryHandler<GetAllClientsQuery, IList<Client>> _getAllClientsQuery;
         private readonly ICommandHandler<ClientCommand> _createClientCommand;
+        private readonly ICommandHandler<DeleteClientCommand> _deleteClientCommand;
 
         public ClientController(
             IQueryHandler<GetAllClientsQuery, IList<Client>> getAllClientsQuery,
-            ICommandHandler<ClientCommand> createClientCommand)
+            ICommandHandler<ClientCommand> createClientCommand,
+            ICommandHandler<DeleteClientCommand> deleteClientCommand)
         {
             _getAllClientsQuery = getAllClientsQuery;
             _createClientCommand = createClientCommand;
+            _deleteClientCommand = deleteClientCommand;
         }
 
         [HttpGet]
@@ -36,6 +40,15 @@ namespace Pharmacy.Controllers
         {
             var client = clientModel.ToClient();
             await _createClientCommand.HandleAsync(new ClientCommand(client));
+
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteClient(CreateClientModel clientModel)
+        {
+            var client = clientModel.ToClient();
+            await _deleteClientCommand.HandleAsync(new DeleteClientCommand(client));
 
             return NoContent();
         }

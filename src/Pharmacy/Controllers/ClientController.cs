@@ -2,6 +2,7 @@
 using Core.Entities;
 using Core.Queries;
 using DAL.Commands.ClientCommand;
+using DAL.Commands.ClientCommand.UpdateCommand;
 using DAL.Commands.CreateClient;
 using DAL.Queries.GetAllClients;
 using Microsoft.AspNetCore.Mvc;
@@ -17,15 +18,18 @@ namespace Pharmacy.Controllers
         private readonly IQueryHandler<GetAllClientsQuery, IList<Client>> _getAllClientsQuery;
         private readonly ICommandHandler<ClientCommand> _createClientCommand;
         private readonly ICommandHandler<DeleteClientCommand> _deleteClientCommand;
+        private readonly ICommandHandler<UpdateClientCommand> _updateClientCommand;
 
         public ClientController(
             IQueryHandler<GetAllClientsQuery, IList<Client>> getAllClientsQuery,
             ICommandHandler<ClientCommand> createClientCommand,
-            ICommandHandler<DeleteClientCommand> deleteClientCommand)
+            ICommandHandler<DeleteClientCommand> deleteClientCommand,
+            ICommandHandler<UpdateClientCommand> updateClientCommand)
         {
             _getAllClientsQuery = getAllClientsQuery;
             _createClientCommand = createClientCommand;
             _deleteClientCommand = deleteClientCommand;
+            _updateClientCommand = updateClientCommand;
         }
 
         [HttpGet]
@@ -41,6 +45,15 @@ namespace Pharmacy.Controllers
         {
             var client = clientModel.ToClient();
             await _createClientCommand.HandleAsync(new ClientCommand(client));
+
+            return NoContent();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateClient(CreateClientModel clientModel)
+        {
+            var client = clientModel.ToClient();
+            await _updateClientCommand.HandleAsync(new UpdateClientCommand(client));
 
             return NoContent();
         }

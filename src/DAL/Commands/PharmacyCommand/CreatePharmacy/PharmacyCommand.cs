@@ -9,6 +9,6 @@ namespace DAL.Commands.PharmacyCommand
         {
             Pharmacy = pharmacy;
         }
-        public Pharmacy Pharmacy { get; set; }
+        public Pharmacy Pharmacy { get; }
     }
 }

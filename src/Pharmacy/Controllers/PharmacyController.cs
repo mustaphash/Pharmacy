@@ -4,6 +4,7 @@ using DAL.Commands.PharmacyCommand;
 using DAL.Queries.GetAllPharmacies;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Models;
+using Pharmacy.Models.PharmacyModel;
 
 namespace Pharmacy.Controllers
 {
@@ -13,6 +14,7 @@ namespace Pharmacy.Controllers
     {
         private readonly IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>> _getAllPharmaciesQuery;
         private readonly ICommandHandler<PharmacyCommand> _createPharmacyCommand;
+        private readonly ICommandHandler<DeletePharmacyCommand>
         public PharmacyController(
             IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>> getAllPharmaciesQuery,
             ICommandHandler<PharmacyCommand> createPharmacyCommand)
@@ -37,6 +39,13 @@ namespace Pharmacy.Controllers
             await _createPharmacyCommand.HandleAsync(new PharmacyCommand(pharmacy));
 
             return NoContent();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeletePharmacy(DeletePharmacyModel pharmacyModel)
+        {
+            var pharmacy = pharmacyModel.ToDelete();
+            await 
         }
     }
 }

@@ -1,14 +1,12 @@
-﻿using Core.Entities;
-
-namespace Pharmacy.Models.PharmacyModel
+﻿namespace Pharmacy.Models.PharmacyModel
 {
     public class DeletePharmacyModel
     {
         public int Id { get; set; }
 
-        public Client ToDelete()
+        public Core.Entities.Pharmacy ToDelete()
         {
-            return new Client()
+            return new Core.Entities.Pharmacy()
             {
                 Id = Id
             };

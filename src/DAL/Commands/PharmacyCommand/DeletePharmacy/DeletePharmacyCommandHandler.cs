@@ -4,9 +4,15 @@ namespace DAL.Commands.PharmacyCommand.DeletePharmacy
 {
     public class DeletePharmacyCommandHandler : ICommandHandler<DeletePharmacyCommand>
     {
-        public Task HandleAsync(DeletePharmacyCommand command, CancellationToken cancellationToken = default)
+        public readonly PharmacyContext _pharmacyContext;
+        public DeletePharmacyCommandHandler(PharmacyContext pharmacyContext)
         {
-            throw new NotImplementedException();
+            _pharmacyContext = pharmacyContext;
+        }
+        public async Task HandleAsync(DeletePharmacyCommand command, CancellationToken cancellationToken = default)
+        {
+            _pharmacyContext.Remove(command.Pharmacy);
+            await _pharmacyContext.SaveChangesAsync();
         }
     }
 }

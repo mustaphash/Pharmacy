@@ -8,7 +8,7 @@ namespace Pharmacy.Models
 
         public string LastName { get; set; }
 
-        public int Age { get; set; }
+        public DateTime BirthDate { get; set; }
 
         public double Points { get; set; }
 
@@ -18,7 +18,7 @@ namespace Pharmacy.Models
             {
                 FirstName = this.FirstName,
                 LastName = this.LastName,
-                Age = this.Age,
+                BirthDate = this.BirthDate,
                 Points = this.Points,
             };
         }

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Core.Commands;
+using DAL.Commands.OrderCommand;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Models.OrderModel;
 
@@ -12,11 +14,18 @@ namespace Pharmacy.Controllers
         //Otchet za period(StartDate EndDate)
         //Anulirane na poruchka(AnulatedOrders s kolona Status)
         //Otchet za anulirani poruchki za period
+        private readonly ICommandHandler<OrderCommand> _createOrderCommand;
+        public OrderController(
+            ICommandHandler<OrderCommand> createOrderCommand)
+        {
+            _createOrderCommand = createOrderCommand;
+        }
+
         [HttpPost("buy")]
         public async Task<IActionResult> BuyMedication(BuyOrAnulateMedicationModel model)
         {
-            var pharmacy = model.ToOrder();
-            await _createPharmacyCommand.HandleAsync(new PharmacyCommand(pharmacy));
+            var order = model.ToOrder();
+            await _createOrderCommand.HandleAsync(new OrderCommand(order));
 
             return NoContent();
         }
@@ -24,8 +33,8 @@ namespace Pharmacy.Controllers
         [HttpPost("anullate")]
         public async Task<IActionResult> AnulateOrder(BuyOrAnulateMedicationModel model)
         {
-            var pharmacy = model.ToOrder();
-            await _createPharmacyCommand.HandleAsync(new PharmacyCommand(pharmacy));
+            var order = model.ToOrder();
+            await _createOrderCommand.HandleAsync(new OrderCommand(order));
 
             return NoContent();
         }
@@ -34,8 +43,6 @@ namespace Pharmacy.Controllers
         [HttpGet("report")]
         public async Task<IActionResult> Report(ReportModel model)
         {
-            var pharmacy = model.ToOrder();
-            await _createPharmacyCommand.HandleAsync(new PharmacyCommand(pharmacy));
 
             return NoContent();
         }

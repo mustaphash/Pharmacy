@@ -45,10 +45,9 @@ namespace Pharmacy.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeletePharmacy(DeletePharmacyModel pharmacyModel)
+        public async Task<IActionResult> DeletePharmacy(int id)
         {
-            var pharmacy = pharmacyModel.ToDelete();
-            await _deletePharmacyCommand.HandleAsync(new DeletePharmacyCommand(pharmacy));
+            await _deletePharmacyCommand.HandleAsync(new DeletePharmacyCommand(id));
 
             return NoContent();
         }

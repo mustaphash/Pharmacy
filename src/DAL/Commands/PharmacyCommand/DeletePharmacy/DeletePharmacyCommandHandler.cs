@@ -11,8 +11,12 @@ namespace DAL.Commands.PharmacyCommand.DeletePharmacy
         }
         public async Task HandleAsync(DeletePharmacyCommand command, CancellationToken cancellationToken = default)
         {
-            _pharmacyContext.Remove(command.Pharmacy);
-            await _pharmacyContext.SaveChangesAsync();
+            var pharmacy = _pharmacyContext.Pharmacies.FirstOrDefault(p => p.Id == command.Id);
+            if (pharmacy != null)
+            {
+                _pharmacyContext.Pharmacies.Remove(pharmacy);
+                await _pharmacyContext.SaveChangesAsync();
+            }
         }
     }
 }

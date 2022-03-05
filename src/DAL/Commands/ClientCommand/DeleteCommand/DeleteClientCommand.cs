@@ -1,14 +1,13 @@
 ﻿using Core.Commands;
-using Core.Entities;
 
 namespace DAL.Commands.ClientCommand
 {
     public class DeleteClientCommand : ICommand
     {
-        public DeleteClientCommand(Client client)
+        public DeleteClientCommand(int id)
         {
-            Client = client;
+            Id = id;
         }
-        public Client Client { get; }
+        public int Id { get; }
     }
 }

@@ -7,7 +7,6 @@ using DAL.Commands.CreateClient;
 using DAL.Queries.GetAllClients;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Models;
-using Pharmacy.Models.ClientModels;
 
 namespace Pharmacy.Controllers
 {
@@ -59,10 +58,9 @@ namespace Pharmacy.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteClient(DeleteClientModel clientModel)
+        public async Task<IActionResult> DeleteClient(int id)
         {
-            var client = clientModel.ToDelete();
-            await _deleteClientCommand.HandleAsync(new DeleteClientCommand(client));
+            await _deleteClientCommand.HandleAsync(new DeleteClientCommand(id));
 
             return NoContent();
         }

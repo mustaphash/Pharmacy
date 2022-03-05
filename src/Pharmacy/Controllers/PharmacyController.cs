@@ -5,7 +5,6 @@ using DAL.Commands.PharmacyCommand.DeletePharmacy;
 using DAL.Queries.GetAllPharmacies;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Models;
-using Pharmacy.Models.PharmacyModel;
 
 namespace Pharmacy.Controllers
 {

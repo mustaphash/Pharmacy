@@ -1,6 +1,4 @@
-﻿using Core.Entities;
-
-namespace Pharmacy.Models
+﻿namespace Pharmacy.Models
 {
     public class CreatePharmacyModel
     {

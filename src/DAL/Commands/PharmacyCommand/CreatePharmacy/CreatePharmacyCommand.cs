@@ -3,9 +3,9 @@ using Core.Entities;
 
 namespace DAL.Commands.PharmacyCommand
 {
-    public class PharmacyCommand : ICommand
+    public class CreatePharmacyCommand : ICommand
     {
-        public PharmacyCommand(Pharmacy pharmacy)
+        public CreatePharmacyCommand(Pharmacy pharmacy)
         {
             Pharmacy = pharmacy;
         }

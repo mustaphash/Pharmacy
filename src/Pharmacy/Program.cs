@@ -25,10 +25,10 @@ builder.Services.AddDbContext<PharmacyContext>(x => x.UseSqlServer(builder.Confi
 builder.Services.AddScoped<IQueryHandler<GetAllClientsQuery, IList<Client>>, GetAllClientsQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>>, GetAllPharmaciesQueryHandler>();
 
-builder.Services.AddScoped<ICommandHandler<ClientCommand>, ClientCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<CreateClientCommand>, CreateClientCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<UpdateClientCommand>, UpdateClientCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeleteClientCommand>, DeleteClientCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<PharmacyCommand>, PharmacyCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<CreatePharmacyCommand>, CreatePharmacyCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeletePharmacyCommand>, DeletePharmacyCommandHandler>();
 
 var app = builder.Build();

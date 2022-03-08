@@ -14,12 +14,12 @@ namespace Pharmacy.Controllers
     public class PharmacyController : ControllerBase
     {
         private readonly IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>> _getAllPharmaciesQuery;
-        private readonly ICommandHandler<PharmacyCommand> _createPharmacyCommand;
+        private readonly ICommandHandler<CreatePharmacyCommand> _createPharmacyCommand;
         private readonly ICommandHandler<DeletePharmacyCommand> _deletePharmacyCommand;
         private readonly ICommandHandler<UpdatePharmacyCommand> _updatePharmacyCommand;
         public PharmacyController(
             IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>> getAllPharmaciesQuery,
-            ICommandHandler<PharmacyCommand> createPharmacyCommand,
+            ICommandHandler<CreatePharmacyCommand> createPharmacyCommand,
             ICommandHandler<DeletePharmacyCommand> deletePharmacyCommand,
             ICommandHandler<UpdatePharmacyCommand> updatePharmacyCommand)
         {
@@ -42,7 +42,7 @@ namespace Pharmacy.Controllers
         public async Task<IActionResult> CreatePharmacy(CreatePharmacyModel pharmacyModel)
         {
             var pharmacy = pharmacyModel.ToPharmacy();
-            await _createPharmacyCommand.HandleAsync(new PharmacyCommand(pharmacy));
+            await _createPharmacyCommand.HandleAsync(new CreatePharmacyCommand(pharmacy));
 
             return NoContent();
         }

@@ -3,9 +3,9 @@ using Core.Entities;
 
 namespace DAL.Commands.CreateClient
 {
-    public class ClientCommand : ICommand
+    public class CreateClientCommand : ICommand
     {
-        public ClientCommand(Client client)
+        public CreateClientCommand(Client client)
         {
             Client = client;
         }

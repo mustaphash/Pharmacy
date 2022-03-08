@@ -15,13 +15,13 @@ namespace Pharmacy.Controllers
     public class ClientController : ControllerBase
     {
         private readonly IQueryHandler<GetAllClientsQuery, IList<Client>> _getAllClientsQuery;
-        private readonly ICommandHandler<ClientCommand> _createClientCommand;
+        private readonly ICommandHandler<CreateClientCommand> _createClientCommand;
         private readonly ICommandHandler<DeleteClientCommand> _deleteClientCommand;
         private readonly ICommandHandler<UpdateClientCommand> _updateClientCommand;
 
         public ClientController(
             IQueryHandler<GetAllClientsQuery, IList<Client>> getAllClientsQuery,
-            ICommandHandler<ClientCommand> createClientCommand,
+            ICommandHandler<CreateClientCommand> createClientCommand,
             ICommandHandler<DeleteClientCommand> deleteClientCommand,
             ICommandHandler<UpdateClientCommand> updateClientCommand)
         {
@@ -43,7 +43,7 @@ namespace Pharmacy.Controllers
         public async Task<IActionResult> CreateClient(CreateClientModel clientModel)
         {
             var client = clientModel.ToClient();
-            await _createClientCommand.HandleAsync(new ClientCommand(client));
+            await _createClientCommand.HandleAsync(new CreateClientCommand(client));
 
             return NoContent();
         }

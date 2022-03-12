@@ -7,7 +7,7 @@
         public double Price { get; set; }
         public DateTime ExpirationDate { get; set; }
 
-        public ICollection<PharmacyMedicament> Pharmacies { get; set; }
+        public ICollection<Pharmacy> Pharmacies { get; set; }
         public ICollection<Order> Orders { get; set; }
     }
 }

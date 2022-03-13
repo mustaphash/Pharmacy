@@ -1,6 +1,6 @@
 ﻿namespace Core.Entities
 {
-    public class AnulatedOrder
+    public class AnullatedOrder
     {
         public int Id { get; set; }
         public int ClientId { get; set; }

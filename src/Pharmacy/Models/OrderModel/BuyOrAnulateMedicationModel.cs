@@ -20,9 +20,9 @@ namespace Pharmacy.Models.OrderModel
             };
         }
 
-        public AnulatedOrder ToAnulatedOrder()
+        public AnullatedOrder ToAnulatedOrder()
         {
-            return new AnulatedOrder()
+            return new AnullatedOrder()
             {
                 ClientId = ClientId,
                 MedicamentId = MedicationId,

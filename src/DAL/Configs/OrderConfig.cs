@@ -11,7 +11,7 @@ namespace DAL.Configs
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.ClientId).IsRequired();
-            builder.Property(x=>x.PharmacyMedicamentId).IsRequired();
+            builder.Property(x => x.PharmacyId).IsRequired();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace DAL
         public DbSet<Medicament> Medicaments { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<AnullatedOrder> AnullatedOrders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

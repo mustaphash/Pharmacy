@@ -7,6 +7,7 @@ using DAL.Commands.CreateClient;
 using DAL.Queries.GetAllClients;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Models;
+using Pharmacy.Models.ClientModels;
 
 namespace Pharmacy.Controllers
 {
@@ -35,8 +36,9 @@ namespace Pharmacy.Controllers
         public async Task<IActionResult> GetAllClients()
         {
             IList<Client> clients = await _getAllClientsQuery.HandleAsync(new GetAllClientsQuery());
+            var clientResponse = clients.Select(c => new ClientResponseModel(c));
 
-            return Ok(clients);
+            return Ok(clientResponse);
         }
 
         [HttpPost]

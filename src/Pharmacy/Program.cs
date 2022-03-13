@@ -2,10 +2,12 @@ using Core.Commands;
 using Core.Entities;
 using Core.Queries;
 using DAL;
+using DAL.Commands.AnullateOrderCommand;
 using DAL.Commands.ClientCommand;
 using DAL.Commands.ClientCommand.UpdateCommand;
 using DAL.Commands.CreateClient;
 using DAL.Commands.InsertMedicationCommand;
+using DAL.Commands.OrderCommand;
 using DAL.Commands.PharmacyCommand;
 using DAL.Commands.PharmacyCommand.DeletePharmacy;
 using DAL.Queries.GetAllClients;
@@ -36,6 +38,8 @@ builder.Services.AddScoped<ICommandHandler<UpdateClientCommand>, UpdateClientCom
 builder.Services.AddScoped<ICommandHandler<DeleteClientCommand>, DeleteClientCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<CreatePharmacyCommand>, CreatePharmacyCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeletePharmacyCommand>, DeletePharmacyCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<OrderCommand>, OrderCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<AnullateOrderCommand>, AnullateOrderCommandHandler>();
 
 var app = builder.Build();
 

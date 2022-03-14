@@ -11,6 +11,7 @@ namespace Pharmacy.Models.ReportMode
             StartDate = report.StartDate;
             EndDate = report.EndDate;
             Orders = report?.Orders?.Select(o => new OrderResponseModel(o));
+            AnullatedOrders = report?.AnullatedOrders?.Select(a => new AnullateOrderResponseModel(a));
         }
 
         public decimal TotalRevenue { get; set; }
@@ -20,12 +21,12 @@ namespace Pharmacy.Models.ReportMode
         public DateTime? EndDate { get; set; }
 
         // TODO: Fix for anullated orders
-        // public int AnullatedOrdersCount => AnulatedOrders != null ? AnulatedOrders.Count() : 0;
+        public int AnullatedOrdersCount => AnullatedOrders != null ? AnullatedOrders.Count() : 0;
 
         public int OrdersCount => Orders != null ? Orders.Count() : 0;
 
         // TODO: Fix for anullated orders
-        //public IEnumerable<AnulatedOrder> AnulatedOrders { get; set; }
+        public IEnumerable<AnullateOrderResponseModel> AnullatedOrders { get; set; }
 
         public IEnumerable<OrderResponseModel> Orders { get; set; }
     }

@@ -42,7 +42,8 @@ namespace Pharmacy.Controllers
         public async Task<IActionResult> GetAllPharmacies()
         {
             IList<Core.Entities.Pharmacy> pharmacies = await _getAllPharmaciesQuery.HandleAsync(new GetAllPharmaciesQuery());
-
+            //TODO: Create ResponseModel
+            var pharmacyResponse = pharmacies.Select(p => new PharmacyResponseModel(p));
             return Ok(pharmacies);
         }
         //CRUD Pharmacies 
@@ -69,7 +70,7 @@ namespace Pharmacy.Controllers
         public async Task<IActionResult> InsertMedication(CreateMedicationModel model)
         {
             var medicament = model.ToMedicament();
-            await _insertMedicationCommand.HandleAsync(new InsertMedicationCommand(model.PharmacyId,medicament));
+            await _insertMedicationCommand.HandleAsync(new InsertMedicationCommand(model.PharmacyId, medicament));
 
             return NoContent();
         }

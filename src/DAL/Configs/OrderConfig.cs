@@ -10,8 +10,10 @@ namespace DAL.Configs
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.ClientId).IsRequired();
-            builder.Property(x => x.PharmacyId).IsRequired();
+            builder.Property(x => x.ClientName).HasMaxLength(200).IsRequired();
+            builder.Property(x => x.MedicamentName).HasMaxLength(100).IsRequired();
+            builder.Property(x => x.PharmacyName).HasMaxLength(200).IsRequired();
+            builder.Property(x => x.CreateDate).IsRequired();
         }
     }
 }

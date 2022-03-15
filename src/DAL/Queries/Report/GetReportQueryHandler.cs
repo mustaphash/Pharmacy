@@ -29,3 +29,4 @@ namespace DAL.Queries.Report
             return report;
         }
     }
+}

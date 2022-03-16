@@ -4,6 +4,10 @@ namespace Pharmacy.Models.PharmacyModel
 {
     public class CreateMedicationModel
     {
+        public CreateMedicationModel()
+        {
+            Name = String.Empty;
+        }
         public string Name { get; set; }
         public double Price { get; set; }
         public DateTime ExpirationDate { get; set; }

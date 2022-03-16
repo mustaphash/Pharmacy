@@ -10,6 +10,7 @@ using DAL.Commands.InsertMedicationCommand;
 using DAL.Commands.OrderCommand;
 using DAL.Commands.PharmacyCommand;
 using DAL.Commands.PharmacyCommand.DeletePharmacy;
+using DAL.Commands.PharmacyCommand.UpdatePharmacy;
 using DAL.Queries.GetAllClients;
 using DAL.Queries.GetAllPharmacies;
 using DAL.Queries.GetOrders;
@@ -37,6 +38,7 @@ builder.Services.AddScoped<ICommandHandler<InsertMedicationCommand>, InsertMedic
 builder.Services.AddScoped<ICommandHandler<UpdateClientCommand>, UpdateClientCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeleteClientCommand>, DeleteClientCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<CreatePharmacyCommand>, CreatePharmacyCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<UpdatePharmacyCommand>, UpdatePharmacyCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeletePharmacyCommand>, DeletePharmacyCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<OrderCommand>, OrderCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<AnullateOrderCommand>, AnullateOrderCommandHandler>();

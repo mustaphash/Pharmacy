@@ -4,6 +4,11 @@ namespace Pharmacy.Models.ClientModels
 {
     public class UpdateClientModel
     {
+        public UpdateClientModel()
+        {
+            FirstName = String.Empty;
+            LastName = String.Empty;
+        }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -12,15 +17,9 @@ namespace Pharmacy.Models.ClientModels
 
         public double Points { get; set; }
 
-        public Client NewClient()
+        public Client ToUpdate()
         {
-            return new Client()
-            {
-                FirstName = FirstName,
-                LastName = LastName,
-                BirthDate = BirthDate,
-                Points = Points,
-            };
+            return new Client();
         }
     }
 }

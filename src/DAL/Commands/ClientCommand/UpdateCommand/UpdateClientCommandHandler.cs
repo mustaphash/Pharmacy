@@ -14,8 +14,12 @@ namespace DAL.Commands.ClientCommand.UpdateCommand
             var client = _pharmacyContext.Clients.FirstOrDefault(c => c.Id == command.Id);
             if (client != null)
             {
-                _pharmacyContext.Clients.Update(command.Client);
-                await _pharmacyContext.SaveChangesAsync();
+                client.FirstName = command.Client.FirstName;
+                client.LastName = command.Client.LastName;
+                client.BirthDate = command.Client.BirthDate;
+                client.Points = command.Client.Points;
+
+                _pharmacyContext.SaveChanges();
             }
         }
     }

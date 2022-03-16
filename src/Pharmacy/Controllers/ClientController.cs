@@ -53,8 +53,8 @@ namespace Pharmacy.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateClient(int id, UpdateClientModel model)
         {
-            var client = model.NewClient();
-            await _updateClientCommand.HandleAsync(new UpdateClientCommand(id,client));
+            var client = model.ToUpdate();
+            await _updateClientCommand.HandleAsync(new UpdateClientCommand(id, client));
 
             return NoContent();
         }

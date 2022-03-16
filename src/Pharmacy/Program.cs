@@ -15,6 +15,7 @@ using DAL.Queries.GetAllClients;
 using DAL.Queries.GetAllPharmacies;
 using DAL.Queries.GetOrders;
 using DAL.Queries.GetPharmacyById;
+using DAL.Queries.Report;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +33,7 @@ builder.Services.AddScoped<IQueryHandler<GetAllClientsQuery, IList<Client>>, Get
 builder.Services.AddScoped<IQueryHandler<GetAllPharmaciesQuery, IList<Core.Entities.Pharmacy>>, GetAllPharmaciesQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetOrdersQuery, IList<Order>>, GetOrdersQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetPharmacyByIdQuery, Core.Entities.Pharmacy>, GetPharmacyByIdQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetReportQuery, Core.Entities.Report>, GetReportQueryHandler>();
 
 builder.Services.AddScoped<ICommandHandler<CreateClientCommand>, CreateClientCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<InsertMedicationCommand>, InsertMedicationCommandHandler>();

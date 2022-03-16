@@ -66,7 +66,7 @@ namespace Pharmacy.Controllers
             return NoContent();
         }
 
-        [HttpPost]
+        [HttpPost("medication")]
         public async Task<IActionResult> InsertMedication(CreateMedicationModel model)
         {
             var medicament = model.ToMedicament();

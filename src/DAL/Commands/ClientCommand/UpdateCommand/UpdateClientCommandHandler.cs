@@ -11,8 +11,12 @@ namespace DAL.Commands.ClientCommand.UpdateCommand
         }
         public async Task HandleAsync(UpdateClientCommand command, CancellationToken cancellationToken = default)
         {
-            _pharmacyContext.Update(command.Client);
-            await _pharmacyContext.SaveChangesAsync();
+            var client = _pharmacyContext.Clients.FirstOrDefault(c => c.Id == command.Id);
+            if (client != null)
+            {
+                _pharmacyContext.Clients.Update(command.Client);
+                await _pharmacyContext.SaveChangesAsync();
+            }
         }
     }
 }

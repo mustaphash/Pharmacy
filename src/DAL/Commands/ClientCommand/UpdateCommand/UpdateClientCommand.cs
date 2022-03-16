@@ -5,10 +5,12 @@ namespace DAL.Commands.ClientCommand.UpdateCommand
 {
     public class UpdateClientCommand : ICommand
     {
-        public UpdateClientCommand(Client client)
+        public UpdateClientCommand(int id,Client client)
         {
+            Id = id;
             Client = client;
         }
+        public int Id { get; set; }
         public Client Client { get; }
     }
 }

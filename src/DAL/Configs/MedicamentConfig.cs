@@ -8,9 +8,9 @@ namespace DAL.Configs
     {
         public void Configure(EntityTypeBuilder<Medicament> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x => x.Name);
 
-            builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
+            builder.Property(x => x.Id);
             builder.Property(x => x.Price).IsRequired();
             builder.Property(x => x.ExpirationDate).IsRequired();
         }

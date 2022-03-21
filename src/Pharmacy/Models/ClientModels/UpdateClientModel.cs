@@ -19,7 +19,14 @@ namespace Pharmacy.Models.ClientModels
 
         public Client ToUpdate()
         {
-            return new Client();
+            return new Client()
+            {
+                FirstName = FirstName,
+                LastName = LastName,
+                BirthDate = BirthDate,
+                Points = Points
+            };
+
         }
     }
 }

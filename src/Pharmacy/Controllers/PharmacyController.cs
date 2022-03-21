@@ -44,7 +44,7 @@ namespace Pharmacy.Controllers
             IList<Core.Entities.Pharmacy> pharmacies = await _getAllPharmaciesQuery.HandleAsync(new GetAllPharmaciesQuery());
             var pharmacyResponse = pharmacies.Select(p => new PharmacyResponseModel(p));
 
-            return Ok(pharmacies);
+            return Ok(pharmacyResponse);
         }
         //CRUD Pharmacies 
         //Insert Medications

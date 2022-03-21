@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\git\\Pharmacy\\src\\Core\\Core.csproj": {}
+    "E:\\git\\Pharmaci\\src\\Core\\Core.csproj": {}
   },
   "projects": {
-    "E:\\git\\Pharmacy\\src\\Core\\Core.csproj": {
+    "E:\\git\\Pharmaci\\src\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\git\\Pharmacy\\src\\Core\\Core.csproj",
+        "projectUniqueName": "E:\\git\\Pharmaci\\src\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "E:\\git\\Pharmacy\\src\\Core\\Core.csproj",
+        "projectPath": "E:\\git\\Pharmaci\\src\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\Mustafa Shakir\\.nuget\\packages\\",
-        "outputPath": "E:\\git\\Pharmacy\\src\\Core\\obj\\",
+        "outputPath": "E:\\git\\Pharmaci\\src\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -8,9 +8,9 @@ namespace DAL.Configs
     {
         public void Configure(EntityTypeBuilder<Client> builder)
         {
-            builder.Property(x => x.Id).IsRequired();
+            builder.HasKey(x => x.Id);
 
-            builder.HasKey(x => x.FirstName);
+            builder.Property(x => x.FirstName).HasMaxLength(200).IsRequired();
             builder.Property(x => x.LastName).HasMaxLength(200).IsRequired();
             builder.Property(x => x.BirthDate).IsRequired();
             builder.Property(x => x.Points).IsRequired();

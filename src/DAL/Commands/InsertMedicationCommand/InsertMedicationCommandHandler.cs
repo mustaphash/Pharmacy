@@ -12,7 +12,7 @@ namespace DAL.Commands.InsertMedicationCommand
         }
         public async Task HandleAsync(InsertMedicationCommand command, CancellationToken cancellationToken = default)
         {
-            var pharmacy = await _pharmacyContext.Pharmacies.FirstOrDefaultAsync(x => x.Id == command.PharmacyId);
+            var pharmacy = await _pharmacyContext.Pharmacies.Include(m => m.Medicaments).FirstOrDefaultAsync(x => x.Id == command.PharmacyId);
             if (pharmacy != null)
             {
                 pharmacy.Medicaments.Add(command.Medicament);

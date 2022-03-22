@@ -19,7 +19,7 @@ namespace DAL.Commands.ClientCommand.UpdateCommand
                 client.BirthDate = command.Client.BirthDate;
                 client.Points = command.Client.Points;
 
-                _pharmacyContext.SaveChanges();
+                await _pharmacyContext.SaveChangesAsync();
             }
         }
     }

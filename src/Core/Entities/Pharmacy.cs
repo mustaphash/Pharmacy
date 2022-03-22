@@ -2,6 +2,11 @@
 {
     public class Pharmacy
     {
+        public Pharmacy()
+        {
+            Name = String.Empty;
+            Address = String.Empty;
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }

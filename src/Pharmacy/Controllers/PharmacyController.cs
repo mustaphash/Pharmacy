@@ -58,10 +58,10 @@ namespace Pharmacy.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdatePharmacy(CreatePharmacyModel pharmacyModel)
+        public async Task<IActionResult> UpdatePharmacy(int id, UpdatePharmacyModel pharmacyModel)
         {
-            var pharmacy = pharmacyModel.ToPharmacy();
-            await _updatePharmacyCommand.HandleAsync(new UpdatePharmacyCommand(pharmacy));
+            var pharmacy = pharmacyModel.UpdatePharmacy();
+            await _updatePharmacyCommand.HandleAsync(new UpdatePharmacyCommand(id, pharmacy));
 
             return NoContent();
         }

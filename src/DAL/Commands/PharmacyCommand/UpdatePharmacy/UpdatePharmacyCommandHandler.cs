@@ -11,9 +11,13 @@ namespace DAL.Commands.PharmacyCommand.UpdatePharmacy
         }
         public async Task HandleAsync(UpdatePharmacyCommand command, CancellationToken cancellationToken = default)
         {
+            var pharmacy = _pharmacyContext.Pharmacies.FirstOrDefault(p => p.Id == command.Id);
             if (command != null)
             {
-                _pharmacyContext.Update(command.Pharmacy);
+                pharmacy.Name = command.Pharmacy.Name;
+                pharmacy.Address = command.Pharmacy.Address;
+                pharmacy.PhoneNumber = command.Pharmacy.PhoneNumber;
+
                 await _pharmacyContext.SaveChangesAsync();
             }
         }

@@ -24,5 +24,6 @@ namespace Pharmacy.Models.OrderModel
         // MedicamentName
         public string MedicamentName { get; set; }
         public DateTime CreateDate { get; set; }
+
     }
 }

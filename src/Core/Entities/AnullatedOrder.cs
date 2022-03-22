@@ -11,5 +11,7 @@
         public Client Client { get; set; }
         public Medicament Medicament { get; set; }
         public Pharmacy Pharmacy { get; set; }
+
+      
     }
 }

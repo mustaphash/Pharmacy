@@ -1,4 +1,5 @@
 ﻿using Core.Commands;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Commands.OrderCommand
 {
@@ -11,8 +12,12 @@ namespace DAL.Commands.OrderCommand
         }
         public async Task HandleAsync(OrderCommand command, CancellationToken cancellationToken = default)
         {
-            await _pharmacyContext.AddAsync(command.Order);
-            await _pharmacyContext.SaveChangesAsync();
+            var order = _pharmacyContext.Orders.Include(m => m.Medicament).Include(c => c.Client).Include(p => p.Pharmacy).FirstOrDefaultAsync();
+            if (order != null)
+            {
+                await _pharmacyContext.AddAsync(command.Order);
+                 _pharmacyContext.SaveChanges();
+            }
         }
     }
 }

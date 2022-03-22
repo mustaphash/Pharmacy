@@ -9,6 +9,6 @@ namespace DAL.Commands.OrderCommand
         {
             Order = order;
         }
-        public Order Order { get; set; }
+        public Order Order { get; }
     }
 }

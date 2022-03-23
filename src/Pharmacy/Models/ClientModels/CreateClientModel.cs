@@ -4,6 +4,11 @@ namespace Pharmacy.Models
 {
     public class CreateClientModel
     {
+        public CreateClientModel()
+        {
+            FirstName = String.Empty;
+            LastName = String.Empty;
+        }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

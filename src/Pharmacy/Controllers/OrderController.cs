@@ -35,7 +35,7 @@ namespace Pharmacy.Controllers
         }
 
         [HttpPost("buy")]
-        public async Task<IActionResult> BuyMedication(BuyOrAnulateMedicationModel model)
+        public async Task<IActionResult> BuyMedication([FromQuery] BuyOrAnulateMedicationModel model)
         {
             var order = model.ToOrder();
             await _createOrderCommand.HandleAsync(new OrderCommand(order));
@@ -44,7 +44,7 @@ namespace Pharmacy.Controllers
         }
 
         [HttpPost("anullate")]
-        public async Task<IActionResult> AnulateOrder(BuyOrAnulateMedicationModel model)
+        public async Task<IActionResult> AnulateOrder([FromRoute] BuyOrAnulateMedicationModel model)
         {
             var order = model.ToAnulatedOrder();
             await _anullateOrderCommand.HandleAsync(new AnullateOrderCommand(order));

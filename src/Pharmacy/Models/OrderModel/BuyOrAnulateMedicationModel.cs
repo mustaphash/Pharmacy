@@ -4,6 +4,12 @@ namespace Pharmacy.Models.OrderModel
 {
     public class BuyOrAnulateMedicationModel
     {
+        public BuyOrAnulateMedicationModel()
+        {
+            MedicationName = String.Empty;
+            PharmacyName = String.Empty;
+            ClientName = String.Empty;
+        }
         public string MedicationName { get; set; }
 
         public string PharmacyName { get; set; }

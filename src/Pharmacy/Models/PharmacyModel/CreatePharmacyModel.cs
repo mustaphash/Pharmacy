@@ -2,6 +2,11 @@
 {
     public class CreatePharmacyModel
     {
+        public CreatePharmacyModel()
+        {
+            Name = String.Empty;
+            Address = String.Empty;
+        }
         public string Name { get; set; }
         public string Address { get; set; }
         public int PhoneNumber { get; set; }

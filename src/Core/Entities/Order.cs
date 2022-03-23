@@ -2,6 +2,12 @@
 {
     public class Order
     {
+        public Order()
+        {
+            ClientName = String.Empty;
+            PharmacyName = String.Empty;
+            MedicamentName = String.Empty;
+        }
         public int Id { get; set; }
         public string ClientName { get; set; }
         public string PharmacyName { get; set; }

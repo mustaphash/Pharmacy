@@ -13,7 +13,6 @@ namespace DAL.Commands.OrderCommand
         {
             await _pharmacyContext.AddAsync(command.Order);
             await _pharmacyContext.SaveChangesAsync();
-
         }
     }
 }

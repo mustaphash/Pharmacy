@@ -5,7 +5,7 @@ namespace Pharmacy.Models.OrderModel
     public class BuyOrAnulateMedicationModel
     {
         public int MedicamentId { get; set; }
-
+        public string MedicamentName { get; set; }
         public int PharmacyId { get; set; }
 
         public int ClientId { get; set; }
@@ -14,6 +14,7 @@ namespace Pharmacy.Models.OrderModel
         {
             return new Order()
             {
+                
                 ClientId = ClientId,
                 MedicamentId = MedicamentId,
                 PharmacyId = PharmacyId,
@@ -24,6 +25,7 @@ namespace Pharmacy.Models.OrderModel
         {
             return new AnullatedOrder()
             {
+
                 ClientId = ClientId,
                 MedicamentId = MedicamentId,
                 PharmacyId = PharmacyId,

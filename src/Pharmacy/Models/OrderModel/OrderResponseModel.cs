@@ -7,22 +7,22 @@ namespace Pharmacy.Models.OrderModel
         public OrderResponseModel(Order order)
         {
             Id = order.Id;
-            ClientName = order.Client.FirstName;
-            PharmacyName = order.Pharmacy.Name;
-            MedicamentName = order.Medicament.Name;
+            ClientId = order.ClientId;
+            PharmacyId = order.PharmacyId;
+            MedicamentId = order.MedicamentId;
             CreateDate = order.CreateDate;
         }
 
         public int Id { get; set; }
 
         // ClientName
-        public string ClientName { get; set; }
+        public int ClientId { get; set; }
 
         // Pharmacy Name
-        public string PharmacyName { get; set; }
+        public int PharmacyId { get; set; }
 
         // MedicamentName
-        public string MedicamentName { get; set; }
+        public int MedicamentId { get; set; }
         public DateTime CreateDate { get; set; }
 
     }

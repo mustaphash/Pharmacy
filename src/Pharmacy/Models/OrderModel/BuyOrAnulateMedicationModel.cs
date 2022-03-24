@@ -4,25 +4,19 @@ namespace Pharmacy.Models.OrderModel
 {
     public class BuyOrAnulateMedicationModel
     {
-        public BuyOrAnulateMedicationModel()
-        {
-            MedicationName = String.Empty;
-            PharmacyName = String.Empty;
-            ClientName = String.Empty;
-        }
-        public string MedicationName { get; set; }
+        public int MedicamentId { get; set; }
 
-        public string PharmacyName { get; set; }
+        public int PharmacyId { get; set; }
 
-        public string ClientName { get; set; }
+        public int ClientId { get; set; }
 
         public Order ToOrder()
         {
             return new Order()
             {
-                ClientName = ClientName,
-                MedicamentName = MedicationName,
-                PharmacyName = PharmacyName,
+                ClientId = ClientId,
+                MedicamentId = MedicamentId,
+                PharmacyId = PharmacyId,
             };
         }
 
@@ -30,9 +24,9 @@ namespace Pharmacy.Models.OrderModel
         {
             return new AnullatedOrder()
             {
-                ClientName = ClientName,
-                MedicamentName = MedicationName,
-                PharmacyName = PharmacyName,
+                ClientId = ClientId,
+                MedicamentId = MedicamentId,
+                PharmacyId = PharmacyId,
             };
         }
     }

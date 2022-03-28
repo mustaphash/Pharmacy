@@ -54,7 +54,7 @@ namespace Pharmacy.Controllers
 
         // last endpoint
         [HttpGet("report")]
-        public async Task<IActionResult> Report([FromRoute] ReportModel model)
+        public async Task<IActionResult> Report([FromQuery] ReportModel model)
         {
             Report report = await _getReport.HandleAsync(new GetReportQuery(model.StartDate, model.EndDate));
             var reportResponse = new ReportResponseModel(report);

@@ -20,11 +20,19 @@ namespace DAL.Queries.Report
 
             var orderStartDate = query.StartDate.HasValue ? query.StartDate.Value : await _context.Orders.MinAsync(o => o.CreateDate, cancellationToken);
             var orderEndDate = query.EndDate.HasValue ? query.EndDate.Value : await _context.Orders.MaxAsync(o => o.CreateDate, cancellationToken);
-            report.Orders = _context.Orders.Where(o => o.CreateDate >= orderStartDate && o.CreateDate <= orderEndDate);
+            report.Orders = _context.Orders
+                .Include(m => m.Medicament)
+                .Include(c => c.Client)
+                .Include(p => p.Pharmacy)
+                .Where(o => o.CreateDate >= orderStartDate && o.CreateDate <= orderEndDate);
 
             var anullatedOrderStartDate = query.StartDate.HasValue ? query.StartDate.Value : await _context.AnullatedOrders.MinAsync(o => o.CreateDate, cancellationToken);
             var anullatedOrderEndDate = query.EndDate.HasValue ? query.EndDate.Value : await _context.AnullatedOrders.MaxAsync(o => o.CreateDate, cancellationToken);
-            report.AnullatedOrders = _context.AnullatedOrders.Where(o => o.CreateDate >= anullatedOrderStartDate && o.CreateDate <= anullatedOrderEndDate);
+            report.AnullatedOrders = _context.AnullatedOrders
+                .Include(m => m.Medicament)
+                .Include(c => c.Client)
+                .Include(p => p.Pharmacy)
+                .Where(o => o.CreateDate >= anullatedOrderStartDate && o.CreateDate <= anullatedOrderEndDate);
 
 
 

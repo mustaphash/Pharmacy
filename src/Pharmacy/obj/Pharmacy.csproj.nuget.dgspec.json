@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\git\\Pharmaci\\src\\Pharmacy\\Pharmacy.csproj": {}
+    "E:\\git\\Pharmacy\\src\\Pharmacy\\Pharmacy.csproj": {}
   },
   "projects": {
-    "E:\\git\\Pharmaci\\src\\Core\\Core.csproj": {
+    "E:\\git\\Pharmacy\\src\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\git\\Pharmaci\\src\\Core\\Core.csproj",
+        "projectUniqueName": "E:\\git\\Pharmacy\\src\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "E:\\git\\Pharmaci\\src\\Core\\Core.csproj",
+        "projectPath": "E:\\git\\Pharmacy\\src\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\Mustafa Shakir\\.nuget\\packages\\",
-        "outputPath": "E:\\git\\Pharmaci\\src\\Core\\obj\\",
+        "outputPath": "E:\\git\\Pharmacy\\src\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -84,14 +84,14 @@
         }
       }
     },
-    "E:\\git\\Pharmaci\\src\\DAL\\DAL.csproj": {
+    "E:\\git\\Pharmacy\\src\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\git\\Pharmaci\\src\\DAL\\DAL.csproj",
+        "projectUniqueName": "E:\\git\\Pharmacy\\src\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "E:\\git\\Pharmaci\\src\\DAL\\DAL.csproj",
+        "projectPath": "E:\\git\\Pharmacy\\src\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Mustafa Shakir\\.nuget\\packages\\",
-        "outputPath": "E:\\git\\Pharmaci\\src\\DAL\\obj\\",
+        "outputPath": "E:\\git\\Pharmacy\\src\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -112,8 +112,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\git\\Pharmaci\\src\\Core\\Core.csproj": {
-                "projectPath": "E:\\git\\Pharmaci\\src\\Core\\Core.csproj"
+              "E:\\git\\Pharmacy\\src\\Core\\Core.csproj": {
+                "projectPath": "E:\\git\\Pharmacy\\src\\Core\\Core.csproj"
               }
             }
           }
@@ -168,14 +168,14 @@
         }
       }
     },
-    "E:\\git\\Pharmaci\\src\\Pharmacy\\Pharmacy.csproj": {
+    "E:\\git\\Pharmacy\\src\\Pharmacy\\Pharmacy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\git\\Pharmaci\\src\\Pharmacy\\Pharmacy.csproj",
+        "projectUniqueName": "E:\\git\\Pharmacy\\src\\Pharmacy\\Pharmacy.csproj",
         "projectName": "Pharmacy",
-        "projectPath": "E:\\git\\Pharmaci\\src\\Pharmacy\\Pharmacy.csproj",
+        "projectPath": "E:\\git\\Pharmacy\\src\\Pharmacy\\Pharmacy.csproj",
         "packagesPath": "C:\\Users\\Mustafa Shakir\\.nuget\\packages\\",
-        "outputPath": "E:\\git\\Pharmaci\\src\\Pharmacy\\obj\\",
+        "outputPath": "E:\\git\\Pharmacy\\src\\Pharmacy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -196,11 +196,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\git\\Pharmaci\\src\\Core\\Core.csproj": {
-                "projectPath": "E:\\git\\Pharmaci\\src\\Core\\Core.csproj"
+              "E:\\git\\Pharmacy\\src\\Core\\Core.csproj": {
+                "projectPath": "E:\\git\\Pharmacy\\src\\Core\\Core.csproj"
               },
-              "E:\\git\\Pharmaci\\src\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\git\\Pharmaci\\src\\DAL\\DAL.csproj"
+              "E:\\git\\Pharmacy\\src\\DAL\\DAL.csproj": {
+                "projectPath": "E:\\git\\Pharmacy\\src\\DAL\\DAL.csproj"
               }
             }
           }

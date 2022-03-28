@@ -7,16 +7,20 @@ namespace Pharmacy.Models.OrderModel
         public AnullateOrderResponseModel(AnullatedOrder anullated)
         {
             Id = anullated.Id;
-            ClientId = anullated.ClientId;
-            MedicamentId = anullated.MedicamentId;
-            PharmacyId = anullated.PharmacyId;
+            ClientName = anullated.Client.FirstName + " " + anullated.Client.LastName;
+            PharmacyName = anullated.Pharmacy.Name;
+            MedicamentName = anullated.Medicament.Name;
             CreateDate = anullated.CreateDate;
         }
 
         public int Id { get; set; }
-        public int ClientId { get; set; }
-        public int PharmacyId { get; set; }
-        public int MedicamentId { get; set; }
+        public string ClientName { get; set; }
+
+        // Pharmacy Name
+        public string PharmacyName { get; set; }
+
+        // MedicamentName
+        public string MedicamentName { get; set; }
         public DateTime CreateDate { get; set; }
 
     }

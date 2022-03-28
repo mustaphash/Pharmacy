@@ -5,19 +5,17 @@ namespace Pharmacy.Models.OrderModel
     public class BuyOrAnulateMedicationModel
     {
         public int MedicamentId { get; set; }
-        public string MedicamentName { get; set; }
         public int PharmacyId { get; set; }
-
         public int ClientId { get; set; }
 
         public Order ToOrder()
         {
             return new Order()
             {
-                
                 ClientId = ClientId,
                 MedicamentId = MedicamentId,
                 PharmacyId = PharmacyId,
+                CreateDate = DateTime.Now
             };
         }
 
@@ -29,6 +27,7 @@ namespace Pharmacy.Models.OrderModel
                 ClientId = ClientId,
                 MedicamentId = MedicamentId,
                 PharmacyId = PharmacyId,
+                CreateDate = DateTime.Now
             };
         }
     }
